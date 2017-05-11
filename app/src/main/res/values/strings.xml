@@ -6,6 +6,12 @@
     <string name="pause">pause</string>
     <string name="back">back</string>
     <string name="next">next</string>
+    <string name="find">Find a song</string>
+    <string name="choose">Choose a song</string>
+    <string name="player">Some TextView explaining what is this</string>
+
+    <string name="allSongs">All Songs</string>
+    <string name="now">Now Playing</string>
 
     <string name="aho">Aho lel we adda</string>
     <string name="atr">Atr el-hayah</string>

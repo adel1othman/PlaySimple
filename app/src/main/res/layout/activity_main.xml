@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/dp5">
 
         <EditText
             android:id="@+id/etSearch"
@@ -22,7 +22,9 @@
             android:textAlignment="center"
             android:inputType="text"
             android:textColor="@color/textNotFocused"
-            android:maxLines="1"/>
+            android:maxLines="1"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
 
         <Button
             android:id="@+id/btnAll"
@@ -30,6 +32,14 @@
             android:layout_height="wrap_content"
             android:text="@string/all"/>
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/find"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/dp5"/>
 
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/songsList"
