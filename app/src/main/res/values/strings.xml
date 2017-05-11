@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">PlaySimple</string>
+    <string name="search">Search</string>
+    <string name="all">all</string>
+    <string name="play">play</string>
+    <string name="pause">pause</string>
+    <string name="back">back</string>
+    <string name="next">next</string>
+
+    <string name="aho">Aho lel we adda</string>
+    <string name="atr">Atr el-hayah</string>
+    <string name="dawar">Dawar benafsak</string>
+    <string name="elhassah">El-hassah el-sabaa</string>
+    <string name="elhelm">El-helm</string>
+    <string name="elleila">El-leila</string>
+    <string name="shoft">Shoft el-ayam</string>
+    <string name="srce">Srce vatreno</string>
+    <string name="svad">Svadiba</string>
+    <string name="terca">Terca na tisinu</string>
+    <string name="pirate">The pirate bay song</string>
+    <string name="treble">Treblebass</string>
+    <string name="wayah">Wayah</string>
+    <string name="zorica">Zorica</string>
+
+    <string name="amr">Amr Diab</string>
+    <string name="ahmed">Ahmed Mekky</string>
+    <string name="nzb">Nered feat. Zapresic Boyz</string>
+    <string name="alex">Alexandros Tsopozidis</string>
+    <string name="silente">Silente</string>
+    <string name="dk">Dubioza kolektiv</string>
+    <string name="svadbas">Svadbas</string>
+    <string name="mejasi">Mejasi</string>
+</resources>
