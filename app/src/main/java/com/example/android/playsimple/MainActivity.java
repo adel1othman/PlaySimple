@@ -1,11 +1,7 @@
 package com.example.android.playsimple;
 
-import android.app.Activity;
 import android.support.v4.app.TaskStackBuilder;
-import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;

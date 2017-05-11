@@ -15,8 +15,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-import static com.example.android.playsimple.R.id.seekbar;
-
 /**
  * Created by Adel on 5/10/2017.
  */
