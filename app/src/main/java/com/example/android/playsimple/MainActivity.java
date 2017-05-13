@@ -106,12 +106,8 @@ public class MainActivity extends AppCompatActivity {
         search.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (search.getText().toString().toLowerCase().equals("search")) {
-                    search.setFocusable(true);
-                    search.setFocusableInTouchMode(true);
-                    search.setText("");
-                    search.setTextColor(getResources().getColor(R.color.typing));
-                }
+                search.setFocusable(true);
+                search.setFocusableInTouchMode(true);
 
                 return false;
             }
