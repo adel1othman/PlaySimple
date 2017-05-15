@@ -1,5 +1,6 @@
 package com.example.android.playsimple;
 
+import android.media.MediaPlayer;
 import android.support.v4.app.TaskStackBuilder;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -53,7 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!s.equals("") ){
+                if (s.toString().isEmpty()){
+                    ListView listView = (ListView) findViewById(R.id.songsList);
+
+                    listView.setAdapter(null);
+                }else if(!s.equals("") ){
                     srch = s.toString().toLowerCase();
                     String searchingSong, searchingArtist;
                     final ArrayList<Song> foundSongs = new ArrayList<Song>();
@@ -90,11 +95,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 }
-                if (s.toString().isEmpty()){
-                    ListView listView = (ListView) findViewById(R.id.songsList);
-
-                    listView.setAdapter(null);
-                }
             }
 
             @Override
@@ -121,6 +121,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(SongsIntent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+
+
+        super.onResume();
     }
 
     @Override

@@ -24,6 +24,7 @@
         <activity
             android:name=".MyPlayer"
             android:label="@string/now"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:parentActivityName="com.example.android.playsimple.MainActivity"/>
     </application>
 

@@ -21,8 +21,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MyPlayer extends AppCompatActivity {
 
-    private MediaPlayer mMediaPlayer;
-    private AudioManager mAudioManager;
+    static MediaPlayer mMediaPlayer;
+    AudioManager mAudioManager;
 
     private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
@@ -43,7 +43,6 @@ public class MyPlayer extends AppCompatActivity {
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mediaPlayer) {
-            releaseMediaPlayer();
             songIndex++;
             if (songIndex > songs.size() - 1){
                 songIndex = 0;
@@ -98,7 +97,7 @@ public class MyPlayer extends AppCompatActivity {
 
         play.setEnabled(false);
 
-        releaseMediaPlayer();
+        //releaseMediaPlayer();
 
         int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
                 AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
@@ -107,6 +106,7 @@ public class MyPlayer extends AppCompatActivity {
             for (int i = 0; i < songs.size(); i++){
                 if (songs.get(i).getmAudioResourceId() == songId){
                     songIndex = i;
+                    break;
                 }
             }
 
@@ -116,7 +116,8 @@ public class MyPlayer extends AppCompatActivity {
         prev.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                releaseMediaPlayer();
+                pause.setEnabled(true);
+                play.setEnabled(false);
                 songIndex--;
                 if (songIndex < 0){
                     songIndex = songs.size() - 1;
@@ -128,7 +129,8 @@ public class MyPlayer extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                releaseMediaPlayer();
+                pause.setEnabled(true);
+                play.setEnabled(false);
                 songIndex++;
                 if (songIndex > songs.size() - 1){
                     songIndex = 0;
@@ -159,11 +161,13 @@ public class MyPlayer extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 skBarProgress = progress;
+                progressTime.setText(String.format("%dm:%ds", TimeUnit.MILLISECONDS.toMinutes((long) progress),
+                        TimeUnit.MILLISECONDS.toSeconds((long) progress) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((long) progress))));
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
+                myHandler.removeCallbacks(UpdateSongTime);
             }
 
             @Override
@@ -178,7 +182,7 @@ public class MyPlayer extends AppCompatActivity {
     public void onStop() {
         super.onStop();
 
-        releaseMediaPlayer();
+        //releaseMediaPlayer();
     }
 
     private void releaseMediaPlayer() {
@@ -192,6 +196,7 @@ public class MyPlayer extends AppCompatActivity {
     }
 
     private void onSongChanged(){
+        releaseMediaPlayer();
         song.setText(songs.get(songIndex).getmSongName());
         artist.setText(songs.get(songIndex).getmArtistName());
         album.setImageResource(songs.get(songIndex).getmImageResourceId());
